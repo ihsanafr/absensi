@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "549869601534",
+    "project_id": "absensifacerecognation",
+    "storage_bucket": "absensifacerecognation.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549869601534:android:1c0fbd7b210764c23e1baf",
+        "android_client_info": {
+          "package_name": "com.example.facerecognation"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_SHlbj9ZW9zAMzxrVZiycRgx87wxAJeU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
