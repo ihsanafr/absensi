@@ -1,113 +1,128 @@
 import 'package:facerecognation/ui/absen/absen_screen.dart';
-import 'package:facerecognation/ui/attendence/attendence_screen.dart';
-import 'package:facerecognation/ui/attendence_history/attendence_history_screen.dart';
+import 'package:facerecognation/ui/attend/attend_screen.dart';
+import 'package:facerecognation/ui/attendance_history/attendance_history_screen.dart';
 import 'package:flutter/material.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return PopScope(
-      canPop: false,//biar mengunci tombol back perangkat
-    onPopInvoked: (bool didpop){
-        if(didpop){
+      canPop: false, //mengunci tombol back perangkat
+      // ignore: deprecated_member_use
+      onPopInvoked: (bool didPop){
+        if(didPop){
           return;
         }
         _onWillPop(context);
-    },
-        child:
-    Scaffold(
+      },
+      child: Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-          child: Center(
-              child:Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.all(10),
-                    child: Expanded(
-                        child: InkWell(
-                          highlightColor: Colors.transparent,
-                          splashColor: Colors.transparent,
-                          onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => const AttendScreen()));
-                          },
-                          child: const Column(
-                            children: [
-                              Image(image: AssetImage('assets/img/ic_absen.png'),
-                                width: 100,
-                                height: 100,),
-                              Text('Absen Kehadiran')
-                            ],
-                          ),
-                        )
-                    ),
+        child: Center(
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                child: Text('Halo, Selamat Datang!'),
+              ),
+              Container(
+                margin: const EdgeInsets.all(10),
+                child: InkWell(
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const AttendScreen()));
+                    },
+                    child: const Column(
+                      children: [
+                        Image(image: AssetImage('assets/images/ic_absen.png'),
+                          width: 100,
+                          height: 100,
+                        ),
+                        SizedBox(height: 10,),
+                        Text('Absen Kehadiran', style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold
+                        ),)
+                      ],
+                    )
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.all(10),
+                child:  InkWell(
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const AbsentScreen()));
+                    },
+                    child: const Column(
+                      children: [
+                        Image(image: AssetImage('assets/images/ic_leave.png'),
+                          width: 100,
+                          height: 100,
+                        ),
+                        SizedBox(height: 10,),
+                        Text('Cuti / Izin', style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold
+                        ),)
+                      ],
+                    )
                   ),
-                  const SizedBox(height: 10,),
-                  Container(
-                    margin: const EdgeInsets.all(10),
-                    child: Expanded(
-                        child: InkWell(
-                          onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => const AbsenScreen()));
-                          },
-                          child: const Column(
-                            children: [
-                              Image(image: AssetImage('assets/img/ic_leave.png'),
-                                width: 100,
-                                height: 100,),
-                              Text('Izin/cuti')
-                            ],
-                          ),
-                        )
-                    ),
+                ),
+              Container(
+                margin: const EdgeInsets.all(10),
+                child: InkWell(
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => AttendanceHistoryScreen()));
+                    },
+                    child: const Column(
+                      children: [
+                        Image(image: AssetImage('assets/images/ic_history.png'),
+                          width: 100,
+                          height: 100,
+                        ),
+                        SizedBox(height: 10,),
+                        Text('Attendance History', style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold
+                        ),)
+                      ],
+                    )
                   ),
-                  const SizedBox(height: 10,),
-                  Container(
-                    margin: const EdgeInsets.all(10),
-                    child: Expanded(
-                        child: InkWell(
-                          onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => const AttendHistoryScreen()));
-                          },
-                          child: const Column(
-                            children: [
-                              Image(image: AssetImage('assets/img/ic_history.png'),
-                                width: 100,
-                                height: 100,),
-                              Text('History Absen')
-                            ],
-                          ),
-                        )
-                    ),
-                  ),
-                ],
-              )
-          )
+                ),
+            ],
+            )
+        )
       ),
-    ));
-
-  }
+    )
+  );
+    }
 }
 
-
-Future <bool> _onWillPop(BuildContext context) async {
+Future<bool> _onWillPop(BuildContext context) async{
   return (await showDialog(
+    barrierDismissible: true,
     context: context,
     builder: (context) => AlertDialog(
-      title: const Text('Info!!'),
-      content: Text('Apakah anda yakin inggin keluar dari applikasi?'),
+      title: const Text("INFO"),
+      content: const Text("Are you sure want to exit?"),
       actions: [
         TextButton(
-          child: const Text('Batal'),
-          onPressed: () => Navigator.of(context).pop(false),
-        ),
+          onPressed: () => Navigator.of(context).pop(false), 
+          child: const Text("No"),
+          ),
         TextButton(
-          child: const Text('Keluar'),
-          onPressed: () => Navigator.of(context).pop(true),
-        ),
+          onPressed: () => Navigator.of(context).pop(), 
+          child: const Text("Yes"),
+        )
       ],
     )
-  )
-  )??false; // jika dialog ditutup tanpa aksi mana aka akan dikembalikan false
+    )
+  ) ?? false; //jika dialog ditutup tanpa aksi, maka kembalikan nilai false
 }
