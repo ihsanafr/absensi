@@ -64,13 +64,13 @@ class _AttendScreenState extends State<AttendScreen> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Card(
+        child: Container(
           color: Colors.white,
           margin: const EdgeInsets.fromLTRB(10, 10, 10, 30),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          elevation: 5,
+          // shape: RoundedRectangleBorder(
+          //   borderRadius: BorderRadius.circular(10),
+          // ),
+          // elevation: 5,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -86,8 +86,8 @@ class _AttendScreenState extends State<AttendScreen> {
                 child: const Row(
                   children: [
                     SizedBox(width: 12),
-                    Icon(Icons.face_retouching_natural_outlined,
-                        color: Colors.white),
+                    // Icon(Icons.face_retouching_natural_outlined,
+                    //     color: Colors.white),
                     SizedBox(width: 12),
                     Text(
                       "Please make a selfie photo!",
@@ -123,7 +123,7 @@ class _AttendScreenState extends State<AttendScreen> {
                   child: DottedBorder(
                     radius: const Radius.circular(10),
                     borderType: BorderType.RRect,
-                    color: Colors.blueAccent,
+                    color: const Color.fromARGB(149, 0, 0, 0),
                     strokeWidth: 1,
                     dashPattern: const [5, 5],
                     child: SizedBox.expand(
@@ -132,7 +132,7 @@ class _AttendScreenState extends State<AttendScreen> {
                             ? Image.file(File(image!.path), fit: BoxFit.cover)
                             : const Icon(
                                 Icons.camera_enhance_outlined,
-                                color: Colors.blueAccent,
+                                color: Color.fromARGB(149, 0, 0, 0),
                               ),
                       ),
                     ),
@@ -155,11 +155,11 @@ class _AttendScreenState extends State<AttendScreen> {
                         const TextStyle(fontSize: 14, color: Colors.black),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(color: Colors.blueAccent),
+                      borderSide: const BorderSide(color: Colors.black),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(color: Colors.blueAccent),
+                      borderSide: const BorderSide(color: Colors.black),
                     ),
                   ),
                 ),
@@ -177,7 +177,7 @@ class _AttendScreenState extends State<AttendScreen> {
               isLoading
                   ? const Center(
                       child: CircularProgressIndicator(
-                        color: Colors.blueAccent,
+                        color: Colors.black,
                       ),
                     )
                   : Padding(
@@ -192,7 +192,7 @@ class _AttendScreenState extends State<AttendScreen> {
                             disabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                                 borderSide:
-                                    const BorderSide(color: Colors.blueAccent)),
+                                    const BorderSide(color: Colors.black)),
                             hintText: strAddress.isNotEmpty
                                 ? strAddress
                                 : 'Your Location',

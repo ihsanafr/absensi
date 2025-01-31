@@ -28,9 +28,13 @@ class HomeScreen extends StatelessWidget {
               Container(
                 
                 width: double.infinity,
-                color: Color(0xFF567DF5),
                 height: 150,
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.only(left: 20, top: 30),
+                decoration: BoxDecoration(
+                color: Color(0xFF567DF5),
+                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20), bottomRight: Radius.circular(20), ),
+
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,72 +46,127 @@ class HomeScreen extends StatelessWidget {
                 
               ),
               Container(
-                margin: const EdgeInsets.all(10),
-                width: 200,
-                color: Colors.amber,
+                margin: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color.fromARGB(255, 230, 230, 230).withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: const Offset(0, 3),
+                    )
+                  ],
+                  color: Color(0xFFFFFFFF),
+                  border: Border(
+                    left: BorderSide(
+                    color: Color.fromARGB(255, 89, 205, 255),
+                    width: 8,
+                    ),
+                  ),
+                ),
                 child: InkWell(
                     highlightColor: Colors.transparent,
                     splashColor: Colors.transparent,
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => const AttendScreen()));
                     },
-                    child: const Column(
+                    child: Row(
                       children: [
-                        Image(image: AssetImage('assets/images/absen.png'),
+                        const Image(image: AssetImage('assets/images/absen.png'),
                           width: 100,
                           height: 100,
                         ),
-                        SizedBox(height: 10,),
+                        const SizedBox(height: 10,),
 
-                        Text('Absen Kehadiran', style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold
+                        Text('Absen Kehadiran', style: GoogleFonts.poppins(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600
                         ),)
                       ],
                     )
                 ),
               ),
               Container(
-                margin: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color.fromARGB(255, 230, 230, 230).withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: const Offset(0, 3),
+                    )
+                  ],
+                  color: Color(0xFFFFFFFF),
+                  border: Border(
+                    left: BorderSide(
+                    color: Color.fromARGB(255, 255, 255, 89),
+                    width: 8,
+                    ),
+                  ),
+                ),
                 child:  InkWell(
                     highlightColor: Colors.transparent,
                     splashColor: Colors.transparent,
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => const AbsentScreen()));
                     },
-                    child: const Column(
+                    child: Row(
                       children: [
-                        Image(image: AssetImage('assets/images/izin.png'),
+                        const Image(image: AssetImage('assets/images/izin.png'),
                           width: 100,
                           height: 100,
                         ),
-                        SizedBox(height: 10,),
-                        Text('Cuti / Izin', style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold
+                        const SizedBox(height: 10,),
+                        Text('Cuti/ Izin', style: GoogleFonts.poppins(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600
                         ),)
                       ],
                     )
                   ),
                 ),
               Container(
-                margin: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color.fromARGB(255, 230, 230, 230).withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: const Offset(0, 3),
+                    )
+                  ],
+                  color: Color(0xFFFFFFFF),
+                  border: Border(
+                    left: BorderSide(
+                    color: Color.fromARGB(255, 89, 255, 108),
+                    width: 8,
+                    ),
+                  ),
+                ),
                 child: InkWell(
                     highlightColor: Colors.transparent,
                     splashColor: Colors.transparent,
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => AttendanceHistoryScreen()));
                     },
-                    child: const Column(
+                    child: Row(
                       children: [
-                        Image(image: AssetImage('assets/images/riwayat.png'),
+                        const Image(image: AssetImage('assets/images/riwayat.png'),
                           width: 100,
                           height: 100,
                         ),
-                        SizedBox(height: 10,),
-                        Text('Attendance History', style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold
+                        const SizedBox(height: 10,),
+                        Text('Riwayat Absen', style: GoogleFonts.poppins(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600
                         ),)
                       ],
                     )

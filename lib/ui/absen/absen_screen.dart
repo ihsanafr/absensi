@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:facerecognation/ui/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class AbsentScreen extends StatefulWidget {
@@ -30,49 +31,51 @@ class _AbsentScreenState extends State<AbsentScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(110, 255, 255, 89),
         elevation: 0,
-        backgroundColor: Colors.blueAccent,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
+          icon: const Icon(Icons.arrow_back_ios, color: Color.fromARGB(255, 183, 137, 0)),
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: const Text(
           "Request Permission Menu",
           style: TextStyle(
-              fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+              fontSize: 18, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 183, 137, 0)),
         ),
       ),
       body: SingleChildScrollView(
-        child: Card(
+        child: Container(
+          // shadowColor: Colors.black,
           color: Colors.white,
-          margin: const EdgeInsets.fromLTRB(10, 10, 10, 30),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          elevation: 5,
+          margin: const EdgeInsets.fromLTRB(10, 30, 10, 30),
+          // shape: RoundedRectangleBorder(
+          //   borderRadius: BorderRadius.circular(10),
+          // ),
+          // elevation: 5,
           child: Column(
+            
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 height: 50,
                 decoration: BoxDecoration(
-                  color: Colors.blueAccent,
+                  color: Color.fromARGB(110, 255, 255, 89),
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(10),
                     topRight: Radius.circular(10),
                   ),
                 ),
-                child: const Row(
+                child: Row(
                   children: [
-                    SizedBox(width: 12),
-                    Icon(Icons.maps_home_work_outlined),
-                    SizedBox(width: 12),
+                    const SizedBox(width: 12),
+                    // Icon(Icons.maps_home_work_outlined),
+                    const SizedBox(width: 12),
                     Text(
                       "Please Fill out the form",
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                          color: Color.fromARGB(255, 183, 137, 0)),
                     ),
                   ],
                 ),
@@ -94,10 +97,11 @@ class _AbsentScreenState extends State<AbsentScreen> {
                           const TextStyle(color: Colors.grey, fontSize: 14),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
-                          borderSide: const BorderSide(color: Colors.blueAccent)),
+                          borderSide:
+                              const BorderSide(color: Colors.black)),
                       enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
-                          borderSide: const BorderSide(color: Colors.blue))),
+                          borderSide: const BorderSide(color: Colors.black))),
                 ),
               ),
               const Padding(
@@ -117,7 +121,7 @@ class _AbsentScreenState extends State<AbsentScreen> {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.blueAccent, width: 1.0),
+                    border: Border.all(color: Colors.black, width: 1.0),
                   ),
                   child: DropdownButton(
                     dropdownColor: Colors.white,
@@ -127,8 +131,8 @@ class _AbsentScreenState extends State<AbsentScreen> {
                         value: value,
                         child: Text(
                           value.toString(),
-                          style:
-                              const TextStyle(fontSize: 14, color: Colors.black),
+                          style: const TextStyle(
+                              fontSize: 14, color: Colors.black),
                         ),
                       );
                     }).toList(),
@@ -167,13 +171,15 @@ class _AbsentScreenState extends State<AbsentScreen> {
                               child: TextField(
                             onTap: () async {
                               DateTime? pickedDate = await showDatePicker(
-                                  builder: (BuildContext context, Widget? child) {
+                                  builder:
+                                      (BuildContext context, Widget? child) {
                                     return Theme(
                                         data: Theme.of(context).copyWith(
-                                            colorScheme: const ColorScheme.light(
-                                                primary: Colors.blueAccent,
-                                                onPrimary: Colors.white,
-                                                onSurface: Colors.black)),
+                                            colorScheme:
+                                                const ColorScheme.light(
+                                                    primary: Colors.blueAccent,
+                                                    onPrimary: Colors.white,
+                                                    onSurface: Colors.black)),
                                         child: child!);
                                   },
                                   context: context,
@@ -211,13 +217,16 @@ class _AbsentScreenState extends State<AbsentScreen> {
                             child: TextField(
                               onTap: () async {
                                 DateTime? pickedDate = await showDatePicker(
-                                    builder: (BuildContext context, Widget? child) {
+                                    builder:
+                                        (BuildContext context, Widget? child) {
                                       return Theme(
                                           data: Theme.of(context).copyWith(
-                                              colorScheme: const ColorScheme.light(
-                                                  primary: Colors.blueAccent,
-                                                  onPrimary: Colors.white,
-                                                  onSurface: Colors.black)),
+                                              colorScheme:
+                                                  const ColorScheme.light(
+                                                      primary:
+                                                          Colors.blueAccent,
+                                                      onPrimary: Colors.white,
+                                                      onSurface: Colors.black)),
                                           child: child!);
                                     },
                                     context: context,
@@ -225,8 +234,8 @@ class _AbsentScreenState extends State<AbsentScreen> {
                                     firstDate: DateTime(1900),
                                     lastDate: DateTime(2100));
                                 if (pickedDate != null) {
-                                  toController.text =
-                                      DateFormat('dd/MM/yyyy').format(pickedDate);
+                                  toController.text = DateFormat('dd/MM/yyyy')
+                                      .format(pickedDate);
                                 }
                               },
                               style: const TextStyle(
@@ -250,26 +259,26 @@ class _AbsentScreenState extends State<AbsentScreen> {
                 margin: const EdgeInsets.all(30),
                 child: Material(
                   elevation: 3,
-                  borderRadius: BorderRadius.circular(20),
+                  // borderRadius: BorderRadius.circular(20),
                   child: Container(
                     height: 50,
-                    width: size.width,
+                    width: double.infinity,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
+                        // borderRadius: BorderRadius.circular(20),
                         color: Colors.white),
                     child: Material(
-                      borderRadius: BorderRadius.circular(20),
+                      // borderRadius: BorderRadius.circular(20),
                       color: Colors.blueAccent,
                       child: InkWell(
                         splashColor: Colors.blue,
-                        borderRadius: BorderRadius.circular(20),
+                        // borderRadius: BorderRadius.circular(20),
                         onTap: () {
                           if (controllerName.text.isEmpty ||
                               dropValueCategories == "Please Choose:" ||
                               fromController.text.isEmpty ||
                               toController.text.isEmpty) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(const SnackBar(
                               content: Row(
                                 children: [
                                   Icon(
@@ -283,7 +292,7 @@ class _AbsentScreenState extends State<AbsentScreen> {
                                 ],
                               ),
                               backgroundColor: Colors.blueAccent,
-                              shape: StadiumBorder(),
+                              // shape: StadiumBorder(),
                               behavior: SnackBarBehavior.floating,
                             ));
                           } else {
@@ -294,7 +303,7 @@ class _AbsentScreenState extends State<AbsentScreen> {
                                 toController.text);
                           }
                         },
-                                                child: const Center(
+                        child: const Center(
                           child: Text(
                             "Submit",
                             style: TextStyle(
@@ -319,7 +328,7 @@ class _AbsentScreenState extends State<AbsentScreen> {
       String name, String reason, String from, String until) async {
     showLoaderDialog(context);
     dataCollection.add({
-      'address':'-',
+      'address': '-',
       'name': name,
       'status': reason,
       'dateTime': '$from-$until'
